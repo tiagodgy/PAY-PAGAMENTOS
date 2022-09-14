@@ -15,6 +15,9 @@ export default function SignIn({ navigation }) {
   function navigateToSignUp() {
     navigation.navigate("SignUp");
   }
+  function navigateToHome() {
+    navigation.navigate("Home");
+  }
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
@@ -32,7 +35,10 @@ export default function SignIn({ navigation }) {
         style={InputStyles.input}
         secureTextEntry={true}
       ></TextInput>
-      <TouchableOpacity style={[buttomStyles.buttom, { marginTop: 30 }]}>
+      <TouchableOpacity
+        style={[buttomStyles.buttom, { marginTop: 30 }]}
+        onPress={navigateToHome}
+      >
         <Text style={buttomStyles.buttomText}>Logar</Text>
       </TouchableOpacity>
       <TouchableOpacity
