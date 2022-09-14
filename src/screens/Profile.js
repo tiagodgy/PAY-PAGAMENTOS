@@ -1,10 +1,21 @@
+import { useEffect, useState } from "react";
 import { SafeAreaView, Text, StyleSheet, StatusBar } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Profile() {
+  const [id, setId] = useState("");
+
+  useEffect(() => {
+    AsyncStorage.getItem("id")
+      .then((value) => {
+        setId(value);
+      })
+      .catch();
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
-      <Text>Profile</Text>
+      <Text>{id}</Text>
     </SafeAreaView>
   );
 }

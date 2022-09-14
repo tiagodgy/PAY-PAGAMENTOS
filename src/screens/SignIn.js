@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   SafeAreaView,
   Text,
@@ -7,16 +8,31 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import { API } from "../services/Api";
 
 import { buttomStyles } from "../styles/ButtomStyle";
 import { InputStyles } from "../styles/InputStyle";
 
 export default function SignIn({ navigation }) {
+  const [cpf, setCpf] = useState("");
+  const [password, setPassword] = useState("");
   function navigateToSignUp() {
     navigation.navigate("SignUp");
   }
   function navigateToHome() {
-    navigation.navigate("Home");
+    fetch(API + "/users?cpf=" + cpf)
+      .then(async (response) => {
+        const data = await response.json();
+        if (password == data[0].password) {
+          AsyncStorage.setItem("id", data[0].id.toString());
+          navigation.navigate("Home");
+        } else {
+          alert("Usuário ou senha não localizados");
+        }
+      })
+      .catch(() => alert("Não foi possível realizar o login"));
   }
   return (
     <SafeAreaView style={styles.container}>
@@ -29,11 +45,13 @@ export default function SignIn({ navigation }) {
         placeholder="CPF"
         style={InputStyles.input}
         keyboardType="number-pad"
+        onChangeText={setCpf}
       ></TextInput>
       <TextInput
         placeholder="Senha"
         style={InputStyles.input}
         secureTextEntry={true}
+        onChangeText={setPassword}
       ></TextInput>
       <TouchableOpacity
         style={[buttomStyles.buttom, { marginTop: 30 }]}
