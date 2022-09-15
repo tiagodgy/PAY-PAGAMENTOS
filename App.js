@@ -62,7 +62,7 @@ function HomeNavigator() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="SignIn">
         <Stack.Screen
           name="FirstPage"
           component={FirstPage}

@@ -1,25 +1,5 @@
 {
-  "users": [
-    {
-      "fullname": "Tiago Godoy",
-      "contact": "11981022496",
-      "email": "Tiagogodoymoreira@gmail.com",
-      "number_rg": "522867194",
-      "cpf": "51314913808",
-      "password": "20001999",
-      "adress": {
-        "cep": "13214495",
-        "street": "Rua Carolina Stackflet",
-        "city": "Jundiaí",
-        "state": "SP",
-        "region": "Portal do Paraíso II",
-        "number": "206",
-        "complement": ""
-      },
-      "billing_day": "2022-09-15",
-      "id": 1
-    }
-  ],
+  "users": [],
   "invoices": [
     {
       "recipient": "DevInHouse Ltda",

@@ -22,17 +22,23 @@ export default function SignIn({ navigation }) {
     navigation.navigate("SignUp");
   }
   function navigateToHome() {
-    fetch(API + "/users?cpf=" + cpf)
-      .then(async (response) => {
-        const data = await response.json();
-        if (password == data[0].password) {
-          AsyncStorage.setItem("id", data[0].id.toString());
-          navigation.navigate("Home");
-        } else {
-          alert("Senha incorreta");
-        }
-      })
-      .catch(() => alert("Não foi possível localizar os dados"));
+    if (cpf.length != 11) {
+      alert("Preencha um cpf válido");
+    } else if (password.length < 8 || password.length > 16) {
+      alert("A senha informada não é válida");
+    } else {
+      fetch(API + "/users?cpf=" + cpf)
+        .then(async (response) => {
+          const data = await response.json();
+          if (password == data[0].password) {
+            AsyncStorage.setItem("id", data[0].id.toString());
+            navigation.navigate("Home");
+          } else {
+            alert("Senha incorreta");
+          }
+        })
+        .catch(() => alert("Não foi possível localizar os dados"));
+    }
   }
   return (
     <SafeAreaView style={styles.container}>
@@ -59,16 +65,13 @@ export default function SignIn({ navigation }) {
       >
         <Text style={buttomStyles.buttomText}>Logar</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={[buttomStyles.buttom, { backgroundColor: "#D7DFE0" }]}
+
+      <Text
+        style={[buttomStyles.buttomText, { color: "#D7DFE0", marginTop: 20 }]}
+        onPress={navigateToSignUp}
       >
-        <Text
-          style={[buttomStyles.buttomText, { color: "#5B41F5" }]}
-          onPress={navigateToSignUp}
-        >
-          Abrir conta gratuita
-        </Text>
-      </TouchableOpacity>
+        Abrir conta gratuita
+      </Text>
     </SafeAreaView>
   );
 }
