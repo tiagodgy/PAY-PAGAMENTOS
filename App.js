@@ -17,6 +17,7 @@ import List from "./src/screens/List";
 import Scan from "./src/screens/Scan";
 import Profile from "./src/screens/Profile";
 import Adress from "./src/screens/Adress";
+import InvoiceData from "./src/screens/InvoiceData";
 
 function HomeNavigator() {
   return (
@@ -61,12 +62,13 @@ function HomeNavigator() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FirstPage">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="FirstPage"
           component={FirstPage}
           options={{
             headerShown: false,
+            gestureEnabled: false,
           }}
         />
         <Stack.Screen
@@ -74,6 +76,7 @@ export default function App() {
           component={SignIn}
           options={{
             headerShown: false,
+            gestureEnabled: false,
           }}
         />
         <Stack.Screen
@@ -111,6 +114,14 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={HomeNavigator}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="InvoiceData"
+          component={InvoiceData}
           options={{
             headerShown: false,
             gestureEnabled: false,

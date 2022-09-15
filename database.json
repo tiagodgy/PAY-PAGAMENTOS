@@ -20,7 +20,26 @@
       "id": 1
     }
   ],
-  "invoices": [],
+  "invoices": [
+    {
+      "recipient": "DevInHouse Ltda",
+      "amount": 30.23,
+      "date": "15/9/2022 16:20",
+      "code": "545434326",
+      "user_id": "1",
+      "cashback": "3.02",
+      "id": 1
+    },
+    {
+      "recipient": "EDP Energias do Mundo",
+      "amount": 230.23,
+      "date": "15/9/2022 17:10",
+      "code": "1234534",
+      "user_id": "1",
+      "cashback": "23.02",
+      "id": 2
+    }
+  ],
   "debts": [
     {
       "id": 1234534,

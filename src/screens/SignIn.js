@@ -29,10 +29,10 @@ export default function SignIn({ navigation }) {
           AsyncStorage.setItem("id", data[0].id.toString());
           navigation.navigate("Home");
         } else {
-          alert("Usuário ou senha não localizados");
+          alert("Senha incorreta");
         }
       })
-      .catch(() => alert("Não foi possível realizar o login"));
+      .catch(() => alert("Não foi possível localizar os dados"));
   }
   return (
     <SafeAreaView style={styles.container}>
