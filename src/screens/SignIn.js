@@ -7,6 +7,8 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  Switch,
+  View,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -18,6 +20,9 @@ import { InputStyles } from "../styles/InputStyle";
 export default function SignIn({ navigation }) {
   const [cpf, setCpf] = useState("");
   const [password, setPassword] = useState("");
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+
   function navigateToSignUp() {
     navigation.navigate("SignUp");
   }
@@ -33,6 +38,11 @@ export default function SignIn({ navigation }) {
           if (password == data[0].password) {
             AsyncStorage.setItem("id", data[0].id.toString());
             navigation.navigate("Home");
+            if (isEnabled) {
+              AsyncStorage.setItem("logged", "true");
+            } else {
+              AsyncStorage.setItem("logged", "false");
+            }
           } else {
             alert("Senha incorreta");
           }
@@ -59,6 +69,23 @@ export default function SignIn({ navigation }) {
         secureTextEntry={true}
         onChangeText={setPassword}
       ></TextInput>
+      <View style={styles.switchView}>
+        <Switch
+          trackColor={{ false: "#767577", true: "#53FF75" }}
+          thumbColor={isEnabled ? "#5B41F5" : "#f4f3f4"}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={toggleSwitch}
+          value={isEnabled}
+        />
+        <Text
+          style={[
+            buttomStyles.buttomText,
+            { color: "#D7DFE0", marginLeft: 10 },
+          ]}
+        >
+          Manter conectado
+        </Text>
+      </View>
       <TouchableOpacity
         style={[buttomStyles.buttom, { marginTop: 30 }]}
         onPress={navigateToHome}
@@ -88,5 +115,12 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     marginVertical: 30,
     marginBottom: 50,
+  },
+  switchView: {
+    width: "80%",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    marginTop: 20,
   },
 });

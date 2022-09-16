@@ -28,14 +28,14 @@ export default function Profile({ navigation }) {
         text: "Sim",
         onPress: () => {
           AsyncStorage.setItem("id", "");
-          navigateToSignIn();
+          navigateToFirstPage();
         },
       },
     ]);
   }
 
-  function navigateToSignIn() {
-    navigation.navigate("SignIn");
+  function navigateToFirstPage() {
+    navigation.navigate("FirstPage");
   }
 
   function getInfo() {

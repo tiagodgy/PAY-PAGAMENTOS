@@ -55,7 +55,7 @@ export default function Policy({ navigation, route }) {
         .then(async () => {
           navigation.navigate("SignIn");
         })
-        .catch(() => console.log("Erro ao cadastrar usuário"));
+        .catch(() => alert("Erro ao cadastrar usuário"));
     }
   }
   useEffect(() => {

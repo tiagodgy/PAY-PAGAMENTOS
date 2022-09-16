@@ -2,6 +2,8 @@ import { SafeAreaView, Text, StyleSheet, StatusBar, Image } from "react-native";
 import LottieView from "lottie-react-native";
 import { buttomStyles } from "../styles/ButtomStyle";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useEffect } from "react";
 export default function FirstPage({ navigation }) {
   function navigateToSignUp() {
     navigation.navigate("SignUp");
@@ -9,6 +11,20 @@ export default function FirstPage({ navigation }) {
   function navigateToSignIn() {
     navigation.navigate("SignIn");
   }
+
+  useEffect(() => {
+    AsyncStorage.getItem("id")
+      .then((value) => {
+        AsyncStorage.getItem("logged").then((result) => {
+          if (result == "true") {
+            if (value != null) {
+              navigation.navigate("Home");
+            }
+          }
+        });
+      })
+      .catch();
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />

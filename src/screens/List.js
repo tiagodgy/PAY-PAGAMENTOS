@@ -24,6 +24,7 @@ export default function List() {
       .catch();
   }, []);
   useEffect(getInvoices, [isFocused]);
+  useEffect(getInvoices);
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
@@ -32,7 +33,7 @@ export default function List() {
       </View>
       <ScrollView style={{ width: "100%" }}>
         {invoices.map((invoice) => (
-          <View style={styles.invoiceView}>
+          <View style={styles.invoiceView} key={invoice.id}>
             <View
               style={{ justifyContent: "space-between", flexDirection: "row" }}
             >

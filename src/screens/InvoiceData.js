@@ -50,24 +50,34 @@ export default function InvoiceData({ navigation, route }) {
   }
 
   function Payment() {
-    fetch(API + "/invoices", {
-      method: "POST",
-      body: JSON.stringify({
-        recipient: recipient,
-        amount: value,
-        date: date,
-        code: barcode,
-        user_id: id,
-        cashback: cashBack,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
-      .then(async () => {
-        navigation.navigate("List");
+    fetch(API + "/invoices?code=" + barcode)
+      .then(async (response) => {
+        const data = await response.json();
+        if (data[0] == undefined) {
+          fetch(API + "/invoices", {
+            method: "POST",
+            body: JSON.stringify({
+              recipient: recipient,
+              amount: value,
+              date: date,
+              code: barcode,
+              user_id: id,
+              cashback: cashBack,
+            }),
+            headers: {
+              "Content-type": "application/json",
+            },
+          })
+            .then(async () => {
+              navigation.navigate("List");
+            })
+            .catch(() => console.log("Erro ao pagar o boleto"));
+        } else {
+          alert("Esse boleto já foi pago!");
+          navigateToScan();
+        }
       })
-      .catch(() => console.log("Erro ao pagar o boleto"));
+      .catch();
   }
   useEffect(getInvoiceData);
   useEffect(GetCashBack);
