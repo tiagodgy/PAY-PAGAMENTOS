@@ -10,7 +10,7 @@ To develop the project, you will use mobile programming using React Native and a
 Fake API with json-server. </h3>
 <a href="https://github.com/tiagodgy/PAY-PAGAMENTOS/blob/master/ProjectDetails.pdf">Click here to check the project requirements</a>
 <hr/>
-<h2> Here are the results with a short exeplanation of its features </h2>
+<h2> Here are the results with a short explanation of its features.</h2>
 <h3> First screen </h3>
 <p> The first screen is located in the file FirstPage.js, the page contains an animation from LottieFiles and two buttons. As soon the user enters this page the applications checks if the user has  already logged in this device before, if so, it checks if the user have selected to keep logged and send him to the home page, without the need to input login information again.</p>
 <p align="center">
@@ -18,13 +18,13 @@ Fake API with json-server. </h3>
 </p>
 <hr>
 <h3> Login screen </h3>
-<p> The login is located in the file SignIn.js. This page is made of two input fields, one for the user CPF (A brazilian federal document, with unique nuber for each person) and other for password. Bellow is located a switch that the user can toggle to save the informations on local storage and keep him logged.</p>
+<p> The login is located in the file SignIn.js. This page is made of two input fields, one for the user CPF (A Brazilian federal document, with unique nuber for each person) and other for password. Bellow is located a switch that the user can toggle to save the information on local storage and keep him logged.</p>
 <p align="center">
   <img src="https://github.com/tiagodgy/PAY-PAGAMENTOS/blob/master/src/screens/images/scrennshots/login.jpeg?raw=true" width="200" />
 </p>
 <hr>
 <h3> Sign up screens </h3>
-<p> A new user on the plataform can choose to create a new account on the first page or in the login page. It will redirect the user to the sign up process that consists of 4 screens. SignUp.js that gets personal informations from user, Adress.js that gets the billing adress from user, ChargeDate.js that gets the billing day and finally Policy.js that asks the user for confirmation on the privacy policy. After confirming the last one, user data is sent to our "fake" API server and stored in the database.json file.</p>
+<p> A new user on the app can choose to create a new account on the first page or in the login page. It will redirect the user to the sign up process that consists of 4 screens. SignUp.js that gets personal information from user, Adress.js that gets the billing address from user, ChargeDate.js that gets the billing day and finally Policy.js that asks the user for confirmation on the privacy policy. After confirming the last one, user data is sent to our "fake" API server and stored in the database.json file.</p>
 <p align="center">
   <img src="https://github.com/tiagodgy/PAY-PAGAMENTOS/blob/master/src/screens/images/scrennshots/SignUp.jpeg?raw=true" width="200" />
   <img src="https://github.com/tiagodgy/PAY-PAGAMENTOS/blob/master/src/screens/images/scrennshots/adress.jpeg?raw=true" width="200" />
@@ -49,7 +49,7 @@ Fake API with json-server. </h3>
 <p align="center">
   <img src="https://github.com/tiagodgy/PAY-PAGAMENTOS/blob/master/src/screens/images/scrennshots/invoices.jpeg?raw=true" width="200" />
 </p>
-<p> On the profile tab the user can see some of his personal information. At the bottom is located a exit buttom that logout the user and erase all info from local storage</p>
+<p> On the profile tab the user can see some of his personal information. At the botton is located a exit buttom that logout the user and erase all info from local storage</p>
 <p align="center">
   <img src="https://github.com/tiagodgy/PAY-PAGAMENTOS/blob/master/src/screens/images/scrennshots/profile.jpeg?raw=true" width="200" />
 </p>
