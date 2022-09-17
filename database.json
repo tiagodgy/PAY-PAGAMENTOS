@@ -18,27 +18,28 @@
       },
       "billing_day": "2022-09-17",
       "id": 1
+    },
+    {
+      "fullname": "Gustavo teste",
+      "contact": "11555555555",
+      "email": "Gustavoteste@gmail.com",
+      "number_rg": "5555555555",
+      "cpf": "51388888888",
+      "password": "testeteste",
+      "adress": {
+        "cep": "13214550",
+        "street": "Rua Olívio Boa",
+        "city": "Jundiaí",
+        "state": "SP",
+        "region": "Parque da Represa",
+        "number": "58",
+        "complement": "Ao lado da padaria"
+      },
+      "billing_day": "2022-09-30",
+      "id": 2
     }
   ],
   "invoices": [
-    {
-      "recipient": "DevInHouse Ltda",
-      "amount": 30.23,
-      "date": "15/9/2022 16:20",
-      "code": "545434326",
-      "user_id": "1",
-      "cashback": "3.02",
-      "id": 1
-    },
-    {
-      "recipient": "EDP Energias do Mundo",
-      "amount": 230.23,
-      "date": "15/9/2022 17:10",
-      "code": "1234534",
-      "user_id": "1",
-      "cashback": "23.02",
-      "id": 2
-    },
     {
       "recipient": "Senai Aprendizagem Industrial",
       "amount": 250,
@@ -65,6 +66,24 @@
       "user_id": "1",
       "cashback": "5.28",
       "id": 5
+    },
+    {
+      "recipient": "DevInHouse Ltda",
+      "amount": 30.23,
+      "date": "17/9/2022 17:47",
+      "code": "545434326",
+      "user_id": "2",
+      "cashback": "3.02",
+      "id": 6
+    },
+    {
+      "recipient": "EDP Energias do Mundo",
+      "amount": 230.23,
+      "date": "17/9/2022 17:47",
+      "code": "1234534",
+      "user_id": "2",
+      "cashback": "23.02",
+      "id": 7
     }
   ],
   "debts": [
