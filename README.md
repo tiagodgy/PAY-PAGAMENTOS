@@ -1,4 +1,3 @@
-
 <p align="center">
   <img src="https://github.com/tiagodgy/PAY-PAGAMENTOS/blob/master/src/screens/images/logoPayPagamentos.png?raw=true" width="200" />
 </p>
