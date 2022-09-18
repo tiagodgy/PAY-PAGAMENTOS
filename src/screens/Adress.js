@@ -13,6 +13,7 @@ import { Picker } from "@react-native-picker/picker";
 
 import { buttomStyles } from "../styles/ButtomStyle";
 import { InputStyles } from "../styles/InputStyle";
+import es from "date-fns/esm/locale/es/index.js";
 
 export default function Adress({ navigation, route }) {
   const [zipCode, setZipCode] = useState("");
@@ -22,7 +23,6 @@ export default function Adress({ navigation, route }) {
   const [district, setDistrict] = useState("");
   const [number, setNumber] = useState("");
   const [adjunct, setAdjunct] = useState("");
-  const [AdressData, setAdressData] = useState({});
 
   function navigateToSignUp() {
     navigation.navigate("SignUp");
@@ -55,20 +55,24 @@ export default function Adress({ navigation, route }) {
   }
 
   function findAdress() {
-    if ((street.length = 8)) {
-      fetch("https://viacep.com.br/ws/" + zipCode + "/json/")
-        .then(async (response) => {
-          const data = await response.json();
-          setStreet(data.logradouro);
-          setCity(data.localidade);
-          setState(data.uf);
-          setDistrict(data.bairro);
-          setAdjunct(data.complemento);
-        })
-        .catch();
-    }
+    fetch("https://viacep.com.br/ws/" + zipCode + "/json/")
+      .then(async (response) => {
+        const data = await response.json();
+        setStreet(data.logradouro);
+        setCity(data.localidade);
+        setState(data.uf);
+        setDistrict(data.bairro);
+        setAdjunct(data.complemento);
+      })
+      .catch();
   }
-  useEffect(findAdress, [zipCode]);
+  useEffect(() => {
+    if (zipCode.length == 8) {
+      findAdress();
+    } else {
+      return;
+    }
+  }, [zipCode]);
 
   return (
     <SafeAreaView style={styles.container}>
