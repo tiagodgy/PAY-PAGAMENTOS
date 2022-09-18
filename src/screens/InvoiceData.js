@@ -93,10 +93,18 @@ export default function InvoiceData({ navigation, route }) {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
       <View style={styles.viewData}>
-        <Text style={styles.textData}>Para: {recipient}</Text>
-        <Text style={styles.textData}>Valor: R${value}</Text>
-        <Text style={styles.textData}>Código do boleto: {barcode}</Text>
-        <Text style={styles.textData}>Cashback: R${cashBack}</Text>
+        <Text style={styles.textData}>
+          Para: <Text style={{ color: "#5B41F5" }}>{recipient}</Text>
+        </Text>
+        <Text style={styles.textData}>
+          Valor: <Text style={{ color: "#E14D2A" }}>R${value}</Text>{" "}
+        </Text>
+        <Text style={styles.textData}>
+          Código do boleto: <Text style={{ color: "#5B41F5" }}>{barcode}</Text>{" "}
+        </Text>
+        <Text style={styles.textData}>
+          Cashback: <Text style={{ color: "#2FAB48" }}>R${cashBack}</Text>{" "}
+        </Text>
       </View>
       <TouchableOpacity style={buttomStyles.buttom} onPress={Payment}>
         <Text style={[buttomStyles.buttomText, { color: "#D7DFE0" }]}>

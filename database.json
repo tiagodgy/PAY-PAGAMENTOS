@@ -37,6 +37,25 @@
       },
       "billing_day": "2022-09-30",
       "id": 2
+    },
+    {
+      "fullname": "Patrícia Teste",
+      "contact": "815468454545",
+      "email": "Patriciatest@gmail.com",
+      "number_rg": "554545454554",
+      "cpf": "51377777777",
+      "password": "testeteste20",
+      "adress": {
+        "cep": "01538001",
+        "street": "Avenida Lins de Vasconcelos",
+        "city": "São Paulo",
+        "state": "SP",
+        "region": "Cambuci",
+        "number": "1222",
+        "complement": "de 1158 a 2158 - lado par"
+      },
+      "billing_day": "2022-09-07",
+      "id": 3
     }
   ],
   "invoices": [
@@ -84,6 +103,15 @@
       "user_id": "2",
       "cashback": "23.02",
       "id": 7
+    },
+    {
+      "recipient": "Faculdade",
+      "amount": 500,
+      "date": "18/9/2022 18:30",
+      "code": "13513113583",
+      "user_id": "3",
+      "cashback": "50.00",
+      "id": 8
     }
   ],
   "debts": [
@@ -111,6 +139,11 @@
       "id": 1235486465,
       "amount": 52.8,
       "recipient": "Google Ads"
+    },
+    {
+      "id": 13513113583,
+      "amount": 500,
+      "recipient": "Faculdade"
     }
   ]
 }
