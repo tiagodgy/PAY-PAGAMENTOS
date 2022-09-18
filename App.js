@@ -62,7 +62,7 @@ function HomeNavigator() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Adress">
+      <Stack.Navigator initialRouteName="FirstPage">
         <Stack.Screen
           name="FirstPage"
           component={FirstPage}
